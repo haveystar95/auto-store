@@ -1,13 +1,19 @@
+body {
+    background-color: #fdfeff;
+}
+
 .vvv li:hover > ul.dropdown-menu {
     display: block;
 }
+
 .dropdown-submenu {
-    position:relative;
+    position: relative;
 }
-.dropdown-submenu>.dropdown-menu {
+
+.dropdown-submenu > .dropdown-menu {
     top: 0;
     left: 100%;
-    margin-top:-6px;
+    margin-top: -6px;
 }
 
 /* rotate caret on hover */
@@ -15,3 +21,163 @@
     text-decoration: underline;
     transform: rotate(-90deg);
 }
+
+.tree-list {
+    color: #1b1e21;
+    list-style-type: none;
+    margin: 4px;
+}
+
+.menu-button {
+    font-size: 12px;
+    height: 25px;
+    padding: 3px 4px;
+    min-width: 250px;
+    text-align: left;
+
+}
+
+.item-tree {
+    font-family: 'Roboto', sans-serif;
+
+
+}
+
+.menu {
+    width: 550px;
+    max-height: 700px;
+    background-color: #acafb2;
+    border-radius: 4px;
+    overflow: scroll;
+
+}
+
+
+.button-car-table {
+    min-width: 150px;
+    height: 50px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+
+    background-color: #343a40;
+    color: #777375;
+    border: 1px solid #565656;
+    border-radius: 0; !important;
+
+}
+
+.button-car-table-items {
+    min-width: 150px;
+    height: 35px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    background-color: #fdfeff;
+    color: #4d4d4d;
+    border: 1px solid #dbdcdd;
+    border-radius: 0; !important;
+    padding: 1px;
+
+}
+
+
+.block-auto-table {
+    max-height: 700px;
+    overflow: scroll;
+}
+
+.select-auto {
+    max-width: 60%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    max-width: 960px;
+}
+
+/*
+ * Custom translucent site header
+ */
+
+.site-header {
+    background-color: rgba(0, 0, 0, .85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+    color: #999;
+    transition: ease-in-out color .15s;
+}
+.site-header a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*
+ * Dummy devices (replace them with your own or something else entirely!)
+ */
+
+.product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+
+.product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+}
+
+.product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+}
+
+
+/*
+ * Extra utilities
+ */
+
+.flex-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+}
+@media (min-width: 768px) {
+    .flex-md-equal > * {
+        -ms-flex: 1;
+        flex: 1;
+    }
+}
+
+.overflow-hidden { overflow: hidden; }

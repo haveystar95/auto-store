@@ -20,3 +20,4 @@ use Illuminate\Http\Request;
     Route::get('/get-car-models', 'CarController@getModelsByCarId')->name('getModelsByCarId');
     Route::get('/get-car-configurations', 'CarController@getConfigurationsByModelId')->name('etConfigurationsByModelId');
     Route::get('/get-menu', 'MenuController@getListById')->name('getListById');
+    Route::get('/get-product-by-category', 'ProductController@getProductsList')->name('getProductsList');

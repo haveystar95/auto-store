@@ -15,6 +15,7 @@ class MenuController extends Controller
     public function getListById(\Illuminate\Http\Request $request)
     {
         $id = $request->input('id');
+
         $params = '?vehicle_id=' . $id;
 
         $client = new Client();
