@@ -12,8 +12,11 @@
 */
 
 Route::get('/', 'IndexController@index');
-Route::get('/st', 'StartController@index1');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/show-product/{productId}/{menuId}', 'Api\ProductController@showProduct')->name('showProduct');
+Route::get('/make-order/{bucketId}', 'OrderController@index')->name('showProduct');

@@ -1,17 +1,20 @@
 <script type="text/x-template" id="item-template">
-    <li class="tree-list">
-        <div
+    <li class="tree-list" >
+        <div  v-show="item.name!='Меню'"
                 :class="{bold: isFolder}"
                 class="item-tree"
-                v-on:click="toggle(item.id)"
+                @click="toggle(item.id)"
                 :id="item.id">
 
-            <button class="btn btn-light menu-button">- @{{ item.name }}
+            <button v-if="isFolder" class="btn  btn-light menu-button menu-button-parent"><b> @{{ item.name }}</b>
                 <span v-if="isFolder">@{{ isOpen ? '-' :  '+'}}</span>
             </button>
 
+            <button v-else class="btn  btn-light menu-button"> - @{{ item.name }}
+            </button>
+
         </div>
-        <ul v-show="isOpen" v-if="isFolder">
+        <ul v-if="(isOpen && isFolder) || item.name=='Меню'">
             <tree-item
                     class="item"
                     v-for="(child, index) in item.children"

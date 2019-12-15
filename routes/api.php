@@ -21,3 +21,9 @@ use Illuminate\Http\Request;
     Route::get('/get-car-configurations', 'CarController@getConfigurationsByModelId')->name('etConfigurationsByModelId');
     Route::get('/get-menu', 'MenuController@getListById')->name('getListById');
     Route::get('/get-product-by-category', 'ProductController@getProductsList')->name('getProductsList');
+    Route::get('/set-car', 'CarController@setCar')->name('setCar');
+    Route::get('/add-product-to-bucket', 'BucketController@addProductToBucket')->name('addProductToBucket');
+    Route::get('/get-bucket-by-key', 'BucketController@getBucketByKey')->name('getBucketByKey');
+    Route::get('/remove-item-bucket', 'BucketController@removeBucketItem')->name('removeBucketItem');
+    Route::get('/change-count-item-bucket', 'BucketController@changeCountProduct')->name('changeCountProduct');
+

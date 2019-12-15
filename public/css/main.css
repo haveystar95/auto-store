@@ -30,8 +30,8 @@ body {
 
 .menu-button {
     font-size: 12px;
-    height: 25px;
-    padding: 3px 4px;
+    max-height: 35px;
+    padding: 0;
     min-width: 250px;
     text-align: left;
 
@@ -40,18 +40,29 @@ body {
 .item-tree {
     font-family: 'Roboto', sans-serif;
 
+}
+
+.ul-tree {
+    padding-top: 25px;
+    padding-left: 0;
+    padding-inline-start: 0px;
 
 }
 
 .menu {
-    width: 550px;
-    max-height: 700px;
+    width: 400px;
+    max-height: 90%;
     background-color: #acafb2;
     border-radius: 4px;
     overflow: scroll;
 
 }
 
+.product-prew {
+    min-width: 60%;
+    margin-left: 25px;
+
+}
 
 .button-car-table {
     min-width: 150px;
@@ -60,10 +71,11 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
 
-    background-color: #343a40;
+    background-color: #f8f9fa;
     color: #777375;
-    border: 1px solid #565656;
-    border-radius: 0; !important;
+    border: 1px solid rgba(197, 197, 197, 0.62);
+    border-radius: 0;
+!important;
 
 }
 
@@ -76,7 +88,9 @@ body {
     background-color: #fdfeff;
     color: #4d4d4d;
     border: 1px solid #dbdcdd;
-    border-radius: 0; !important;
+    border-bottom: 0px;
+    border-radius: 0;
+!important;
     padding: 1px;
 
 }
@@ -88,23 +102,18 @@ body {
 }
 
 .select-auto {
+    color: rgba(76, 73, 77, 0.75);
     max-width: 60%;
+    margin-left: 25px;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.line-selected-auto {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 15px;
+}
 
 
 .container {
@@ -120,10 +129,12 @@ body {
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
 }
+
 .site-header a {
     color: #999;
     transition: ease-in-out color .15s;
 }
+
 .site-header a:hover {
     color: #fff;
     text-decoration: none;
@@ -173,6 +184,7 @@ body {
     -ms-flex: 1;
     flex: 1;
 }
+
 @media (min-width: 768px) {
     .flex-md-equal > * {
         -ms-flex: 1;
@@ -180,4 +192,160 @@ body {
     }
 }
 
-.overflow-hidden { overflow: hidden; }
+.overflow-hidden {
+    overflow: hidden;
+}
+
+
+.modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: table;
+    transition: opacity .3s ease;
+}
+
+.modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.modal-container {
+    width: 70%;
+    min-height: 400px;
+    max-height: 700px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    transition: all .3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h3 {
+    margin-top: 0;
+    color: #3439c8;
+}
+
+.modal-body {
+    overflow: scroll;
+    margin: 20px 0;
+    max-height: 500px;
+}
+
+.modal-default-button {
+    float: right;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+    opacity: 0;
+}
+
+.modal-leave-active {
+    opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.image-bucket {
+    margin-left: 40px;
+    width: 130px;
+    height: 130px;
+}
+
+.row-bucket {
+    height: 180px;
+    /*margin: 20px;*/
+    padding: 15px;
+}
+
+.price-bucket {
+    width: 40%;
+    margin-right: 20px;
+    border-radius: 0px;
+
+}
+
+.delete-bucket {
+    width: 40%;
+    margin-right: 20px;
+    border-radius: 0px;
+    text-align: center;
+    opacity: 0.9;
+    font-family: 'Open Sans', sans-serif;
+
+
+}
+
+.bucket-info-text {
+    margin-left: 3%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+
+.btn-group-bucket {
+    width: 100%;
+}
+
+.bucket-counter {
+    margin: 30px;
+    padding-top: 20px;
+
+}
+
+.bucket-counter-text {
+    padding-top: 10px;
+    width: 35px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid #18a2b8;
+
+}
+
+.card-product-button button {
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    margin: 1px;
+}
+.card-product-button  a {
+    text-decoration: none;
+    color: #1b4b72;
+}
+.card-product-item {
+    padding: 2px; !important;
+}
+
+.footer-bucket {
+    height: 65px;
+}
+.footer-bucket button {
+    opacity: 0.9;
+    font-family: 'Open Sans';
+    border-radius: 0;
+    font-size: 14px;
+    color: white;
+}
+
+.footer-bucket a {
+    color: white;
+}

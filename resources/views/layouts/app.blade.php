@@ -5,21 +5,38 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
 
 </head>
 <body>
+<div>
+    <div id="app">
+
+        @include('template.header')
+
+        <div class="container-fluid">
+            @yield('content')
+        </div>
+        <modal v-if="showModal" :bucket="this.bucket" @close="showModal = false">
+            <h3 slot="header">Корзина заказов</h3>
+        </modal>
+
+    </div>
+</div>
+</body>
+</div>
+
+@include('template.item-template')
+@include('template.modal-order')
+@include('template.auto')
+@include('template.item-template')
+@include('template.products-prew')
+</html>
+
 
 <script src="https://vuejs.org/js/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/js/layout.js"></script>
-
-
-<div class="container">
-    @yield('content')
-</div>
-
-</body>
-</html>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

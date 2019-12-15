@@ -5,15 +5,17 @@ namespace App\Http\Controllers\Api;
 
 
 use App\Http\Controllers\Controller;
+use App\Http\Services\ProductService;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    private $url = 'https://maxi.ecat.ua/api/desktop/v1/products/?vehicle_id={ch_id}&treenode_id={menu_id}&include_elitsupplier_list=1&entity_id={ch_id}&context=1&limit={limit}&offset={offset}';
+    private $urlProductList = 'https://maxi.ecat.ua/api/desktop/v1/products/?vehicle_id={ch_id}&treenode_id={menu_id}&include_elitsupplier_list=1&entity_id={ch_id}&context=1&limit={limit}&offset={offset}';
 
     public function getProductsList(Request $request)
     {
+
         $data = $request->all();
 
         $replace = [
@@ -23,7 +25,7 @@ class ProductController extends Controller
             '{offset}' => $data['offset']
         ];
 
-        $url = strtr($this->url, $replace);
+        $url = strtr($this->urlProductList, $replace);
 
         $client = new Client();
         $response = $client->request('GET', $url, [
@@ -35,5 +37,15 @@ class ProductController extends Controller
         $result = $response->getBody()->getContents();
         return response($result, 200);
 
+    }
+
+    public function showProduct($productId, $menuId)
+    {
+        $product = (new ProductService())->getProduct($productId, $menuId);
+
+        return view('product', [
+            'product' => $product,
+            'searchParams' => ['productId' => $productId, 'menuId' => $menuId]
+        ]);
     }
 }

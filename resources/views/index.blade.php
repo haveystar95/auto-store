@@ -1,32 +1,39 @@
 @extends('layouts.app')
+@section('content')
 
-<div class="container-fluid">
-    <div id="app">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light rounded line-selected-auto">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10"
+                    aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <template v-if="car">
+                            <p> @{{ car.brand.name }} @{{ car.vehiclemodel.name }} @{{
+                                car.enginetype }} @{{ car.ccm }}
+                                <button v-if="menuId" class="btn btn-sm btn-dark" @click="showSelectCar">Выбрать другое
+                                    авто
+                                </button>
+                            </p>
+
+                        </template>
+                        <template v-else>
+                            <p> Авто не выбрано </p>
+
+                        </template>
 
 
-        <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-            <div class="col-md-5 p-lg-5 mx-auto my-5">
-                <h1 class="display-4 font-weight-normal">Auto Store</h1>
-                <p class="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing
-                    efforts with this example based on Apple’s marketing pages.</p>
-                <a class="btn btn-outline-secondary" href="#selectAuto">Выбрать авто</a>
+                    </li>
+                </ul>
             </div>
-            <div class="product-device shadow-sm d-none d-md-block"></div>
-            <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-        </div>
+        </nav>
 
 
-        <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3" id="selectAuto">
-
-
-            <div class="select-auto bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-                <h3 class="display-5 font-weight-normal">Выберите из списка авто</h3>
-                <v-auto></v-auto>
-
-            </div>
-
-
-            <div v-if="isSetMenuList" class="menu bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5">
+        <div class="d-md-flex" id="selectAuto">
+            <div v-if="confId" class="menu bg-light ">
                 <ul class="ul-tree">
                     <tree-item
                             class="item"
@@ -37,21 +44,28 @@
 
             </div>
 
+            <div v-if="menuId == null"
+                 class="select-auto bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                <h3 class="display-5 font-weight-normal">Выберите из списка авто</h3>
+                <v-auto></v-auto>
+
+            </div>
+
+            <div v-show="menuId != null" class="text-black product-prew">
+                <div>
+                    <v-products-prew></v-products-prew>
+                </div>
+            </div>
+
 
         </div>
 
-
-        <div>
-            <v-products-prew></v-products-prew>
-        </div>
 
     </div>
 
-</div>
-@include('template.auto')
-@include('template.item-template')
-@include('template.products-prew')
 
+
+@endsection
 
 
 
